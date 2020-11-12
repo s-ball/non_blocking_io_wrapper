@@ -75,7 +75,7 @@ class NonBlockingReader(io.RawIOBase):
         Returns True if it succeeded or False on timeout.
         """
         self.t.join(timeout)
-        return not self.t.isAlive()
+        return not self.t.is_alive()
 
     def __del__(self):
         self.close()
