@@ -12,7 +12,7 @@ import sys
 
 sys.path.append('.')
 
-pkg = 'remo_serv'
+pkg = 'non_blocking_io_wrapper'
 wd = os.path.abspath(os.path.dirname(__file__))
 _version = None
 
@@ -25,6 +25,7 @@ def get_version() -> str:
     _version = '0.0.0'  # fallback value should never be used
     try:  # first from git using setuptools_scm
         from setuptools_scm import get_version as scm_version
+        print('found setuptools_scm')
         _version = scm_version(write_to=os.path.join(wd, pkg, 'version.py'))
     except (ImportError, LookupError):
         try:  # else from a previous version.py
