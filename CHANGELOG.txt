@@ -1,3 +1,5 @@
+0.5.2: Improve README file
+
 0.5.1: Add Continuous Integration tests
     - add support for Travis-CI
     - add a CHANGELOG.txt file

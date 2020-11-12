@@ -1,6 +1,6 @@
 # non_blocking_io_wrapper
 
-##Description:
+## Description:
 
 `non_blocking_io_wrapper.NonBlockingReader` is a wrapper class to
 build a non blocking stream from any read stream. It can be used for
@@ -40,11 +40,38 @@ Returns True if it succeeded or False on timeout
 
 It is intended to allow to wait for availability of some data.
 
+## Installation
+
+### From PyPI
+
+Released version are normally available from PyPI. Just user `pip` to
+install the last one:
+
+    pip install non_blocking_io_wrapper
+    
+### From GitHUB
+
+You can also clone the main repository from GitHUB:
+
+    git clone https://github.com/s-ball/non_blocking_io_wrapper.git
+
+## Contribution - development
+
+A test package (97% coverage as of 0.5) is included in the GitHUB
+repository and in the source packages on PyPI.
+
+### Special processing for `version.py`
+
+Versioning file is not included in the GitHUB repository because it is
+generated with `setuptools_scm`. It is of course included in PyPI packages
+so you should make sure to have a true git repository, or to get the sources
+from PyPI. The symptom is that you get a version number of 0.0.0 ...
 
 ## Disclaimer: beta quality
 
-All functionalities are now implemented. Yet it still lacks more
-documentation, and has not been extensively tested.
+It is fully functional and pass tests for Python 3.6 to 3.9 on Travis-CI.
+Yet it could have a better documentation, and has not been extensively
+tested.
 
 ## License
 
