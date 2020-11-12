@@ -82,12 +82,17 @@ class NonBlockingReader(io.RawIOBase):
         super().__del__()
 
     def select(self, timeout=None):
-        """Waits for data to become available.
+        """Waits for data to become available, or more exactly for the
+        next read not to return None. Specifically, it returns True after
+        end of file has been reached, because the next read will
+        immediately return b''.
 
         If timeout is given and is not None it is the maximum time in
         seconds to wait.
         Returns True if it succeeded or False on timeout.
         """
+        if self.ended:
+            return True
         self.available.wait(timeout)
         with self.lock:
             return 0 != len(self.data)

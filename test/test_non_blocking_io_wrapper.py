@@ -67,3 +67,12 @@ class TestNonBlockingReader(TestCase):
         end = time.time()
         self.assertEqual(b'a', self.fd.read())
         self.assertTrue(.05 < end-beg < .15)
+
+    def test_select_eof(self):
+        self.fd.drain()
+        self.assertEqual(b'ab\ncd', self.fd.read())
+        beg = time.time()
+        self.assertTrue(self.fd.select(.1))
+        end = time.time()
+        self.assertTrue(end-beg < .05)
+        self.assertEqual(b'', self.fd.read())
